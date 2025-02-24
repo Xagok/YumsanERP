@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("YumsanERP")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cfebb4bc6f167a8846e9affc43aacb12d5b28cd0")]
 [assembly: System.Reflection.AssemblyProductAttribute("YumsanERP")]
 [assembly: System.Reflection.AssemblyTitleAttribute("YumsanERP")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,0 +1,26 @@
+.sidenav-container {
+    height: 100vh;
+  }
+  
+  .mat-toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+  }
+  
+  .content {
+    padding: 16px;
+  }
+  .logo-container {
+    text-align: center;
+    padding: 16px;
+  }
+  
+  .logo-container img {
+    max-width: 35%;
+    height: auto;
+  }
+  mat-sidenav {
+    width: 150px; // Adjust this value as needed
+  }
+  

@@ -1,21 +1,23 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #sidenav mode="side" opened>
+    <div class="logo-container">
+      <img src="/images/YMS_Logo.png" alt="Company Logo">
+    </div>
     <mat-nav-list>
       <a mat-list-item routerLink="/dashboard">Dashboard</a>
-      <a mat-list-item routerLink="/sales">Sales</a>
-      <a mat-list-item routerLink="/inventory">Inventory</a>
-      <a mat-list-item routerLink="/hr">HR</a>
+      <a mat-list-item routerLink="/joborders">Job Orders</a>
+      <a mat-list-item routerLink="/employees">Employees</a>
+      <a mat-list-item routerLink="/customers">Customers</a>
     </mat-nav-list>
   </mat-sidenav>
 
   <mat-sidenav-content>
     <mat-toolbar color="primary">
-      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="sidenav.toggle()">
+      <!-- <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="sidenav.toggle()">
         <mat-icon>menu</mat-icon>
-      </button>
-      <span>ERP System</span>
+      </button> -->
+      <span></span>
     </mat-toolbar>
-
     <div class="content">
       <router-outlet></router-outlet>
     </div>
