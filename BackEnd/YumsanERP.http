@@ -1,0 +1,6 @@
+@YumsanERP_HostAddress = http://localhost:5199
+
+GET {{YumsanERP_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
