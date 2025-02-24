@@ -51,4 +51,8 @@ export class JobordersService {
   getJobOrders(): Observable<JobOrder[]> {
     return this.http.get<JobOrder[]>(this.apiUrl);
   }
+  addJobOrder(jobOrder: JobOrder): Observable<JobOrder> {
+    return this.http.post<JobOrder>(this.apiUrl, jobOrder);
+  }
+  
 }
