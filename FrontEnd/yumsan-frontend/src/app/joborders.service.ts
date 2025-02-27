@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 export interface Customer {
-  id: number;
+  id?: number;
   name?: string;
   address?: string;
   contact?: string;
@@ -11,7 +11,7 @@ export interface Customer {
 
 
 export interface Employee {
-  id: number;
+  id?: number;
   name?: string;
   surname?: string;
   address?: string;
@@ -21,19 +21,19 @@ export interface Employee {
 
 
 export interface JobOrder {
-  id: number;
+  id?: number;
   jobNumber: number;
   customerId: number;
   customer?: Customer;
   description?: string;
-  orderDate: string;     // Consider using ISO strings or converting to Date objects as needed
-  finishDate: string;
-  deliveryDate: string;
-  invoiceDate: string;
+  orderDate: Date;     // Consider using ISO strings or converting to Date objects as needed
+  finishDate: Date;
+  deliveryDate: Date;
+  invoiceDate: Date;
   po?: string;
   qty: number;
   orderedBy?: string;
-  deadline: string;
+  deadline: Date;
   price: number;
   employeeId?: number;
   employee?: Employee;
@@ -52,7 +52,13 @@ export class JobordersService {
     return this.http.get<JobOrder[]>(this.apiUrl);
   }
   addJobOrder(jobOrder: JobOrder): Observable<JobOrder> {
+    debugger
     return this.http.post<JobOrder>(this.apiUrl, jobOrder);
   }
-  
+  deleteJobOrder(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
+  updateJobOrder(id: number, jobOrder: JobOrder): Observable<JobOrder> {
+    return this.http.put<JobOrder>(`${this.apiUrl}/${id}`, jobOrder);
+  }
 }
