@@ -8,21 +8,26 @@ import { JobordersService, JobOrder, Customer } from '../joborders.service';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
-import { MatDatepickerModule } from '@angular/material/datepicker'
+import { MatDatepickerModule, MatDatepickerIntl } from '@angular/material/datepicker'
 import { MatNativeDateModule } from '@angular/material/core';
 import { ChangeDetectorRef } from '@angular/core';
 import { CustomersService } from '../customers.service';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
+import {MatIconModule} from '@angular/material/icon';
+
+
+import {DateAdapter, MAT_DATE_LOCALE} from '@angular/material/core';
 
 
 
 @Component({
   selector: 'app-joborders',
   standalone: true,
-  imports: [CommonModule, MatTableModule, MatSortModule, MatInputModule, MatFormFieldModule, FormsModule, MatButtonModule, MatDatepickerModule, MatNativeDateModule, MatOptionModule, MatSelectModule],
+  imports: [CommonModule, MatTableModule, MatSortModule, MatInputModule, MatFormFieldModule, FormsModule, MatButtonModule, MatDatepickerModule, MatNativeDateModule, MatOptionModule, MatSelectModule, MatIconModule],
   templateUrl: './joborders.component.html',
-  styleUrls: ['./joborders.component.scss']
+  styleUrls: ['./joborders.component.scss'],
+  providers: [{provide: MAT_DATE_LOCALE, useValue: 'fr'}]
 })
 export class JobordersComponent implements OnInit {
   displayedColumns: string[] = [
@@ -83,23 +88,9 @@ export class JobordersComponent implements OnInit {
     }
   }
   
-  // editJobOrder(order: JobOrder) {
-  //   this.newJobOrder = { ...order }; // Copy selected order into form
-  // }
-
   editJobOrder(order: JobOrder) {
-    this.newJobOrder = {
-      ...order,
-      orderDate: new Date(order.orderDate),
-      finishDate: new Date(order.finishDate),
-      deliveryDate: new Date(order.deliveryDate),
-      invoiceDate: new Date(order.invoiceDate),
-      deadline: new Date(order.deadline),
-      // Ensure all date fields are converted to Date objects
-    };
-    this.cdr.markForCheck();
+    this.newJobOrder = { ...order }; // Copy selected order into form
   }
-  
 
   updateJobOrder() {
     if (this.newJobOrder.id !== undefined) {
@@ -117,33 +108,6 @@ export class JobordersComponent implements OnInit {
         });
     } else {
       console.error('JobOrder ID is undefined. Cannot update.');
-    }
-  }
-  
-  
-  submitJobOrder() {
-    if (this.newJobOrder.id) {
-      // Update existing job order
-      this.jobordersService.updateJobOrder(this.newJobOrder.id, this.newJobOrder).subscribe({
-        next: (updatedOrder) => {
-          const index = this.dataSource.data.findIndex(order => order.id === updatedOrder.id);
-          if (index !== -1) {
-            this.dataSource.data[index] = updatedOrder;
-            this.dataSource._updateChangeSubscription(); // Refresh the table
-          }
-          this.resetForm();
-        },
-        error: (err) => console.error('Error updating job order:', err)
-      });
-    } else {
-      // Create new job order
-      this.jobordersService.addJobOrder(this.newJobOrder).subscribe({
-        next: (createdOrder) => {
-          this.dataSource.data = [...this.dataSource.data, createdOrder];
-          this.resetForm();
-        },
-        error: (err) => console.error('Error adding job order:', err)
-      });
     }
   }
   
