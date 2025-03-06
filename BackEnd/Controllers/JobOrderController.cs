@@ -87,7 +87,7 @@ namespace YumsanERP.Controllers
             _context.Entry(JobOrder).State = EntityState.Modified;
             await _context.SaveChangesAsync();
 
-            return NoContent();
+            return Ok(JobOrder);
         }
 
         // DELETE: api/JobOrders/5

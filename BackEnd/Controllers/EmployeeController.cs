@@ -8,7 +8,7 @@ namespace YumsanERP.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-//    [Authorize]
+    // [Authorize]
     public class EmployeesController : ControllerBase
     {
         private readonly AppDbContext _context;
@@ -29,36 +29,36 @@ namespace YumsanERP.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Employee>> GetEmployee(int id)
         {
-            var Employee = await _context.Employees.FindAsync(id);
+            var employee = await _context.Employees.FindAsync(id);
 
-            if (Employee == null)
+            if (employee == null)
             {
                 return NotFound();
             }
 
-            return Employee;
+            return employee;
         }
 
         // POST: api/Employees
         [HttpPost]
-        public async Task<ActionResult<Employee>> PostEmployee(Employee Employee)
+        public async Task<ActionResult<Employee>> PostEmployee(Employee employee)
         {
-            _context.Employees.Add(Employee);
+            _context.Employees.Add(employee);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetEmployee), new { id = Employee.Id }, Employee);
+            return CreatedAtAction(nameof(GetEmployee), new { id = employee.Id }, employee);
         }
 
         // PUT: api/Employees/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutEmployee(int id, Employee Employee)
+        public async Task<IActionResult> PutEmployee(int id, Employee employee)
         {
-            if (id != Employee.Id)
+            if (id != employee.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(Employee).State = EntityState.Modified;
+            _context.Entry(employee).State = EntityState.Modified;
             await _context.SaveChangesAsync();
 
             return NoContent();
@@ -68,13 +68,13 @@ namespace YumsanERP.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteEmployee(int id)
         {
-            var Employee = await _context.Employees.FindAsync(id);
-            if (Employee == null)
+            var employee = await _context.Employees.FindAsync(id);
+            if (employee == null)
             {
                 return NotFound();
             }
 
-            _context.Employees.Remove(Employee);
+            _context.Employees.Remove(employee);
             await _context.SaveChangesAsync();
 
             return NoContent();

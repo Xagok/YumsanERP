@@ -52,7 +52,6 @@ export class JobordersService {
     return this.http.get<JobOrder[]>(this.apiUrl);
   }
   addJobOrder(jobOrder: JobOrder): Observable<JobOrder> {
-    debugger
     return this.http.post<JobOrder>(this.apiUrl, jobOrder);
   }
   deleteJobOrder(id: number): Observable<void> {

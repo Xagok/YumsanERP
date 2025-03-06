@@ -1,38 +1,90 @@
 .filter-container {
-    display: flex;
-    justify-content: flex-start;
-    margin-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.search-input {
+  width: calc(100% - 50px);
+  height: 40px;
+  padding: 0 10px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  outline: none;
+  transition: box-shadow 0.3s ease;
+
+  &:focus {
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
   }
-  
-  .filter-input {
-    width: 60px;
+}
+
+.search-button, .add-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #0056b3;
   }
-  
-  .demo-table {
-    width: 100%;
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
   }
-  
-  .mat-mdc-row .mat-mdc-cell {
-    border-bottom: 2px solid transparent;
-    border-top: 2px solid transparent;
-    cursor: pointer;
+
+  mat-icon {
+    font-size: 24px;
   }
-  
-  .mat-mdc-row:hover .mat-mdc-cell {
-    border-color: red;
-  }
-  
-  .demo-row-is-clicked {
-    font-weight: bold;
-  }
-  
-  .mat-column-actions {
-    border-left: 1px solid currentColor;
-  }
-  .description {
-    width: 20%;
-  }
-  .formfield {
-    width: 50%
-  }
+}
+
+.filter-input {
+  width: 60px;
+}
+
+.demo-table {
+  width: 100%;
+}
+
+.mat-mdc-row .mat-mdc-cell {
+  border-bottom: 2px solid transparent;
+  border-top: 2px solid transparent;
+  cursor: pointer;
+}
+
+.mat-mdc-row:hover .mat-mdc-cell {
+  border-color: red;
+}
+
+.demo-row-is-clicked {
+  font-weight: bold;
+}
+
+.mat-column-actions {
+  border-left: 1px solid currentColor;
+}
+
+.description {
+  width: 20%;
+}
+
+.formfield {
+  width: 100%;
+}
 

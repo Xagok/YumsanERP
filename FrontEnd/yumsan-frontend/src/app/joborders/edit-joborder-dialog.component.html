@@ -1,0 +1,90 @@
+<!-- edit-job-order-dialog.component.html -->
+<h1 mat-dialog-title>Edit Job Order</h1>
+<div mat-dialog-content>
+  <form [formGroup]="jobOrderForm">
+    <mat-form-field appearance="outline">
+      <mat-label>Job Number</mat-label>
+      <input matInput formControlName="jobNumber">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Customer</mat-label>
+      <mat-select formControlName="customerId" required>
+        <mat-option *ngFor="let customer of data.customers" [value]="customer.id">
+          {{ customer.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Description</mat-label>
+      <input matInput formControlName="description">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Order Date</mat-label>
+      <input matInput [matDatepicker]="orderDatePicker" formControlName="orderDate">
+      <mat-datepicker-toggle matSuffix [for]="orderDatePicker"></mat-datepicker-toggle>
+      <mat-datepicker #orderDatePicker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Finish Date</mat-label>
+      <input matInput [matDatepicker]="finishDatePicker" formControlName="finishDate">
+      <mat-datepicker-toggle matSuffix [for]="finishDatePicker"></mat-datepicker-toggle>
+      <mat-datepicker #finishDatePicker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Delivery Date</mat-label>
+      <input matInput [matDatepicker]="deliveryDatePicker" formControlName="deliveryDate">
+      <mat-datepicker-toggle matSuffix [for]="deliveryDatePicker"></mat-datepicker-toggle>
+      <mat-datepicker #deliveryDatePicker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Invoice Date</mat-label>
+      <input matInput [matDatepicker]="invoiceDatePicker" formControlName="invoiceDate">
+      <mat-datepicker-toggle matSuffix [for]="invoiceDatePicker"></mat-datepicker-toggle>
+      <mat-datepicker #invoiceDatePicker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>PO</mat-label>
+      <input matInput formControlName="po">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Quantity</mat-label>
+      <input matInput formControlName="qty">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Ordered By</mat-label>
+      <input matInput formControlName="orderedBy">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Deadline</mat-label>
+      <input matInput [matDatepicker]="deadlineDatePicker" formControlName="deadline">
+      <mat-datepicker-toggle matSuffix [for]="deadlineDatePicker"></mat-datepicker-toggle>
+      <mat-datepicker #deadlineDatePicker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Price</mat-label>
+      <input matInput formControlName="price">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Employee ID</mat-label>
+      <input matInput formControlName="employeeId">
+    </mat-form-field>
+
+    <!-- Add more fields similarly -->
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-button (click)="onSave()">Save</button>
+</div>

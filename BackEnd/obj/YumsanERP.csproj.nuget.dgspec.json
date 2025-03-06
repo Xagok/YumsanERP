@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ihsan\\Desktop\\YumsanERP\\BackEnd\\YumsanERP.csproj": {}
+    "D:\\ihsan\\Desktop\\YumsanERP\\BackEnd\\YumsanERP.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ihsan\\Desktop\\YumsanERP\\BackEnd\\YumsanERP.csproj": {
+    "D:\\ihsan\\Desktop\\YumsanERP\\BackEnd\\YumsanERP.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ihsan\\Desktop\\YumsanERP\\BackEnd\\YumsanERP.csproj",
+        "projectUniqueName": "D:\\ihsan\\Desktop\\YumsanERP\\BackEnd\\YumsanERP.csproj",
         "projectName": "YumsanERP",
-        "projectPath": "C:\\Users\\ihsan\\Desktop\\YumsanERP\\BackEnd\\YumsanERP.csproj",
+        "projectPath": "D:\\ihsan\\Desktop\\YumsanERP\\BackEnd\\YumsanERP.csproj",
         "packagesPath": "C:\\Users\\ihsan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ihsan\\Desktop\\YumsanERP\\BackEnd\\obj\\",
+        "outputPath": "D:\\ihsan\\Desktop\\YumsanERP\\BackEnd\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ihsan\\AppData\\Roaming\\NuGet\\NuGet.Config"
